@@ -7,6 +7,32 @@
   <title>Notes</title>
 </head>
 <body>
-  
+  <header>
+    <h1>Notes</h1>
+    <nav>
+      <ul>
+        <li>Make a New Note</li>
+        <li>Edit a Note</li>
+        <li>Delete a Note</li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h2>New Note</h2>
+    <form id="new-note">
+      <div>
+        <label for="note-title"></label>
+        <input id="note-title" type="text" name="note-title" placeholder="Tile">
+      </div>
+      <div>
+        <label for="note-body"></label>
+        <input id="note-body" type="text" name="note-body" placeholder="Write your note here!">
+      </div>
+      <div>
+        <input type="submit" value="Create Note">
+      </div>
+    </form>
+  </main>
+  <scrpit src="script.js"></scrpit>
 </body>
 </html>
