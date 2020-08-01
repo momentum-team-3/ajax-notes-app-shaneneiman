@@ -49,14 +49,53 @@ function deleteNote (event) {
 //Single Page Web Application Event Handlers
 //New Note
 function makeNewNoteVisible () {
-
+    let newNoteSection = document.querySelector("#new-note-section")
+    let viewNotesSection = document.querySelector("#view-notes-section")
+    newNoteSection.classList.remove("hidden")
+    viewNotesSection.classList.add("hidden")
 }
 
 //View Notes
 function makeViewNoteVisible () {
+    let viewNotesSection = document.querySelector("#view-notes-section")
+    let newNotesSection = document.querySelector("#new-note-section")
+    viewNotesSection.classList.remove("hidden")
+    newNotesSection.classList.add("hidden")
     
 }
+
+//Event Handler to Display Notes in Database
+function displayNotes () {
+    let viewNotesSection = document.querySelector("#view-notes-section")
+    viewNotesSection.innerHTML=""
+    fetch(dbNotes)
+    .then(response => response.json())
+    .then(note => {
+        for (let n of note) {
+            let title = n.title
+            let body = n.body
+            let noteEntry = document.createElement("form")
+            noteEntry.innerHTML = `<div> <label for="entry-note-title"></label> <input id="entry-note-title" type="text" name="entry-note-title" value= ${title} required> </div> <div> <label for="entry-note-body"></label> <input id="entry-note-body" type="text" name="entry-note-body" value= "${body}" required> </div> <div> <input id="submit-changes-form-buttom" type="submit" value="Submit Changes"> <input id="delete-form-button" type="submit" value="Delete Note"> </div>`
+            viewNotesSection.appendChild(noteEntry)
+        }
+    })
+} 
+
+//Event Listeners to hide and show content
+//New Note 
+let newNoteNav = document.querySelector("#new-note-navButton")
+newNoteNav.addEventListener("click", makeNewNoteVisible)
+
+//View Notes
+let viewNotesNav = document.querySelector("#view-notes-navButton")
+viewNotesNav.addEventListener("click", makeViewNoteVisible)
+
 
 // Event Listener to submit new note
 let newNoteForm = document.querySelector("#new-note")
 newNoteForm.addEventListener("submit", addNote)
+
+//Event Listener to load notes onto the screen from the DB
+let displayDbNotes = document
+displayDbNotes.addEventListener("DOMContentLoaded", displayNotes)
+
