@@ -4,35 +4,38 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css"/>
   <title>Notes</title>
 </head>
 <body>
   <header>
     <h1>Notes</h1>
     <nav>
-      <ul>
-        <li>Make a New Note</li>
-        <li>Edit a Note</li>
-        <li>Delete a Note</li>
-      </ul>
+      <a href="#" id="view-notes-navButton">View Notes</a>
+      <a href="#" id="new-note-NavButton">New Note</a>
     </nav>
   </header>
   <main>
-    <h2>New Note</h2>
-    <form id="new-note">
-      <div>
-        <label for="note-title"></label>
-        <input id="note-title" type="text" name="note-title" placeholder="Tile" required>
-      </div>
-      <div>
-        <label for="note-body"></label>
-        <input id="note-body" type="text" name="note-body" placeholder="Write your note here!" required>
-      </div>
-      <div>
-        <input type="submit" value="Create Note">
-      </div>
-    </form>
+    <section id="view-notes-section">
+      <p>Notes will populate here!</p>
+    </section>
+    <section id="new-note-section" class="hidden">
+      <h2>New Note</h2>
+      <form id="new-note">
+        <div>
+          <label for="note-title"></label>
+          <input id="note-title" type="text" name="note-title" placeholder="Tile" required>
+          </div>
+          <div>
+          <label for="note-body"></label>
+          <input id="note-body" type="text" name="note-body" placeholder="Write your note here!" required>
+        </div>
+        <div>
+          <input type="submit" value="Create Note">
+        </div>
+      </form>
+    </section>
   </main>
-  <scrpit src="script.js"></scrpit>
+  <script src="script.js"></script>
 </body>
 </html>

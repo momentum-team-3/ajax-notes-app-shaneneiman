@@ -1,11 +1,11 @@
 // Set dbNotes to the URL for the database
-const dbNotes = "http://localhost:3000/notes"
+const dbNotes = "http://localhost:3000/notes/"
 
 // Data Validation and Object Creation
 function validate (note, title, body) {
     console.log(note)
     for (let n of note) {
-        if (n.title = title) {
+        if (n.title === title) {
             alert("A note already exists with this title")
             //Leave event handler function without sumbitting
             return
@@ -44,6 +44,17 @@ function editNote (event) {
 
 function deleteNote (event) {
     event.preventDefault()
+}
+
+//Single Page Web Application Event Handlers
+//New Note
+function makeNewNoteVisible () {
+
+}
+
+//View Notes
+function makeViewNoteVisible () {
+    
 }
 
 // Event Listener to submit new note
